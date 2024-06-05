@@ -1,8 +1,5 @@
 package web.DAO;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import web.model.User;
 
@@ -19,7 +16,6 @@ public class UserDAOImpl implements UserDAO {
 
 
     @Override
-    @Transactional
     public List<User> getAllUsers() {
         return entityManager.createQuery("from User", User.class).getResultList();
     }

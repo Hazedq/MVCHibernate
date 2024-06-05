@@ -1,15 +1,14 @@
 package web.service;
 
+import net.bytebuddy.asm.Advice;
 import org.springframework.stereotype.Service;
 import web.DAO.UserDAO;
 import web.model.User;
 
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
 
     private final UserDAO userDAO;
@@ -31,7 +30,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
     public User showUserById(long id) {
         return userDAO.showUserById(id);
     }
